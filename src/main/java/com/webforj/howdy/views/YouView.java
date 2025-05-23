@@ -181,6 +181,15 @@ public class YouView extends Composite<FlexLayout> {
     else {
       Nickname.setText(this.nickname);
       Nickname.setEnabled(false);
+      String storedMood = (String) model.get(this.nickname);
+      if (storedMood != null && !storedMood.isEmpty()) {
+        for (com.webforj.component.list.ListItem item : MyMood.getItems()) {
+          if (item.getText().equals(storedMood)) {
+            MyMood.select(item);
+            break;
+          }
+        }
+      }
     }
   }
 
